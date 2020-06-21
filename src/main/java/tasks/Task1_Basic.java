@@ -69,9 +69,9 @@ class Task1_Basic {
 
         return Arrays.stream(str.split("\\s+"))
                 .map( i -> {
-                    Integer integer = i.length();
-                    String s = integer.toString();
-                    return s;
-                }).collect(Collectors.joining(" "));
+                    int integer = i.length();
+                    return Integer.toString(integer);
+                })
+                .collect(Collectors.joining(" "));
     }
 }

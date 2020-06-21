@@ -1,6 +1,7 @@
 package tasks;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Task2_IntStream {
 
@@ -27,7 +28,10 @@ public class Task2_IntStream {
      * @return
      */
     public static Integer multiply(List<Integer> linkedListOfNumbers) {
-        throw new PleaseDeleteMeAndImplement();
+        return linkedListOfNumbers.stream()
+                .reduce((i1, i2) -> i1 * i2)
+                .filter(result -> result > 0 && result <= 100 )
+                .orElse(-1);
     }
 
     /**
@@ -44,7 +48,9 @@ public class Task2_IntStream {
      * @return
      */
     public static double findAverage(int[] numbers) {
-        throw new PleaseDeleteMeAndImplement();
+        return IntStream.of(numbers)
+                .average()
+                .orElseThrow();
     }
 
 }
