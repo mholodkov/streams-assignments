@@ -1,9 +1,7 @@
 package tasks;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Задания на groupingBy - очень полезная функция в Stream.
@@ -35,7 +33,9 @@ public class Task3_GroupBy {
      * </pre>
      */
     public static Map<String, List<Employee>> groupByCompaniesAsList(Collection<Employee> employees) {
-        throw new PleaseDeleteMeAndImplement();
+//        throw new PleaseDeleteMeAndImplement();
+        return  employees.stream()
+                .collect(Collectors.groupingBy(e -> e.company));
     }
 
     /**
@@ -62,7 +62,9 @@ public class Task3_GroupBy {
      * </pre>
      */
     public static Map<String, List<Employee>> groupByCompaniesAsListUppercase(Collection<Employee> employees) {
-        throw new PleaseDeleteMeAndImplement();
+//        throw new PleaseDeleteMeAndImplement();
+        return employees.stream()
+                .collect(Collectors.groupingBy(e -> e.company.toUpperCase()));
     }
 
 
@@ -80,7 +82,9 @@ public class Task3_GroupBy {
      * @return
      */
     public static Map<String, Set<Employee>> groupByCompaniesAsSet(Collection<Employee> employees) {
-        throw new PleaseDeleteMeAndImplement();
+//        throw new PleaseDeleteMeAndImplement();
+     return employees.stream()
+             .collect(Collectors.groupingBy(Employee::getCompany,Collectors.toSet()));
     }
 
     /**
@@ -110,7 +114,9 @@ public class Task3_GroupBy {
      * @return
      */
     public static Map<String, List<String>> groupByCompaniesAsString(Collection<Employee> employees) {
-        throw new PleaseDeleteMeAndImplement();
+//        throw new PleaseDeleteMeAndImplement();
+        return employees.stream()
+                .collect(Collectors.groupingBy(Employee::getCompany,Collectors.mapping(e -> e.name, Collectors.toList())));
     }
 
 
